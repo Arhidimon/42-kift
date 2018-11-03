@@ -6,11 +6,11 @@
 /*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 14:57:59 by dbezruch          #+#    #+#             */
-/*   Updated: 2018/10/26 15:09:02 by dbezruch         ###   ########.fr       */
+/*   Updated: 2018/10/26 17:16:45 by dbezruch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "../include/client.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -61,10 +61,11 @@ int main(int argc, char *argv[]) {
 	while ( (n = read(sockfd, recvBuff, sizeof(recvBuff)-1)) > 0)
 	{
 		recvBuff[n] = 0;
-		if(fputs(recvBuff, stdout) == EOF)
-		{
-			printf("\n Error : Fputs error\n");
-		}
+//		if(fputs(recvBuff, stdout) == EOF)
+//		{
+//			printf("\n Error : Fputs error\n");
+//		}
+	printf("Message[%s]", recvBuff);
 	}
 
 	if(n < 0)

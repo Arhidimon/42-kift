@@ -6,11 +6,11 @@
 /*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 15:09:57 by dbezruch          #+#    #+#             */
-/*   Updated: 2018/10/26 15:10:23 by dbezruch         ###   ########.fr       */
+/*   Updated: 2018/10/26 17:09:08 by dbezruch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
+#include "../include/server.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 		connfd = accept(listenfd, (struct sockaddr*)NULL, NULL);
 
 		ticks = time(NULL);
-		snprintf(sendBuff, sizeof(sendBuff), "%.24s\r\n", ctime(&ticks));
+		snprintf(sendBuff, sizeof(sendBuff), "%.24s", ctime(&ticks));
 		write(connfd, sendBuff, strlen(sendBuff));
 
 		close(connfd);
