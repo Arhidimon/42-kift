@@ -70,23 +70,34 @@
     </style>
 </head>
 <body class=" bg-light">
-<div class="container-fluid">
+<header class="">
     <div class="row">
         <div class="col-12 text-center">
             <h1>KIFT logger</h1>
         </div>
     </div>
-
-    <div class="row">
+</header>
+<div class="container-fluid">
+        <div class="row">
         <div class="col-12">
-            <div class="list-group div-scroll">
+            <div class="accordion" id="accordion">
                 @foreach($logs as $log)
-                    <div class="list-group-item d-flex">
-                        <div class="">
-                            <i class="fas fa-angle-double-right"></i> {{str_limit($log['title'], 30)}}
+                    <div class="card d-flex">
+                        <div class="card-header" id="heading{{ $loop->index }}" data-toggle="collapse" data-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">
+                                <div>
+                                    <i class="fas fa-angle-double-right"></i> {{str_limit($log['title'], 30)}}
+                                    <div class="ml-auto">
+                                        {{$log['date']}}
+                                    </div>
+                                </div>
+
                         </div>
-                        <div class="ml-auto">
-                            {{$log['date']}}
+
+                        <div id="collapse{{ $loop->index }}" class="collapse" aria-labelledby="heading{{ $loop->index }}"
+                             data-parent="#accordion">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -105,29 +116,9 @@
         crossorigin="anonymous"></script>
 <!-- FontAwesome -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<!-- Datatables -->
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.table-container tr').on('click', function () {
-            $('#' + $(this).data('display')).toggle();
-        });
-        $('#table-log').DataTable({
-            "order": [$('#table-log').data('orderingIndex'), 'desc'],
-            "stateSave": true,
-            "stateSaveCallback": function (settings, data) {
-                window.localStorage.setItem("datatable", JSON.stringify(data));
-            },
-            "stateLoadCallback": function (settings) {
-                var data = JSON.parse(window.localStorage.getItem("datatable"));
-                if (data) data.start = 0;
-                return data;
-            }
-        });
-        $('#delete-log, #clean-log, #delete-all-log').click(function () {
-            return confirm('Are you sure?');
-        });
+
     });
 </script>
 </body>
