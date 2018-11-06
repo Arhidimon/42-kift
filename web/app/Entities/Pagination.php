@@ -11,12 +11,20 @@ namespace App\Entities;
 
 class Pagination
 {
+    private $pages;
+    private $currentPage;
+    private $perPage = 5;
 
     public function currentPage() {
         return 1;
     }
 
     public function lastPage() {
-        return 2;
+        return $this->pages;
     }
+
+    public function hasPages() {
+        return ($this->pages > 1);
+    }
+
 }
