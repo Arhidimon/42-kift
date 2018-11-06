@@ -1,125 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Laravel log viewer</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-    <style>
-        body {
-            padding: 25px;
-        }
+@extends('log-viewer::bootstrap-4._master')
 
-        h1 {
-            font-size: 1.5em;
-            margin-top: 0;
-        }
+@section('content')
+        {{--<div class="row">--}}
+        {{--<div class="col-12">--}}
+            {{--<div class="accordion" id="accordion">--}}
+                {{--@foreach($logs as $log)--}}
+                    {{--<div class="card d-flex">--}}
+                        {{--<div class="card-header" id="heading{{ $loop->index }}" data-toggle="collapse" data-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">--}}
+                                {{--<div>--}}
+                                    {{--<i class="fas fa-angle-double-right"></i> {{str_limit($log['title'], 30)}}--}}
+                                    {{--<div class="ml-auto">--}}
+                                        {{--{{$log['date']}}--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
 
-        #table-log {
-            font-size: 0.85rem;
-        }
+                        {{--</div>--}}
 
-        .sidebar {
-            font-size: 0.85rem;
-            line-height: 1;
-        }
+                        {{--<div id="collapse{{ $loop->index }}" class="collapse" aria-labelledby="heading{{ $loop->index }}"--}}
+                             {{--data-parent="#accordion">--}}
+                            {{--<div class="card-body">--}}
+                                {{--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-        .btn {
-            font-size: 0.7rem;
-        }
 
-        .stack {
-            font-size: 0.85em;
-        }
-
-        .date {
-            min-width: 75px;
-        }
-
-        .text {
-            word-break: break-all;
-        }
-
-        a.llv-active {
-            z-index: 2;
-            background-color: #f5f5f5;
-            border-color: #777;
-        }
-
-        .list-group-item {
-            word-wrap: break-word;
-        }
-
-        .folder {
-            padding-top: 15px;
-        }
-
-        .div-scroll {
-            height: 80vh;
-            overflow: hidden auto;
-        }
-
-        .nowrap {
-            white-space: nowrap;
-        }
-
-    </style>
-</head>
-<body class=" bg-light">
-<header class="">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1>KIFT logger</h1>
-        </div>
-    </div>
-</header>
-<div class="container-fluid">
         <div class="row">
-        <div class="col-12">
-            <div class="accordion" id="accordion">
-                @foreach($logs as $log)
-                    <div class="card d-flex">
-                        <div class="card-header" id="heading{{ $loop->index }}" data-toggle="collapse" data-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">
-                                <div>
-                                    <i class="fas fa-angle-double-right"></i> {{str_limit($log['title'], 30)}}
-                                    <div class="ml-auto">
-                                        {{$log['date']}}
-                                    </div>
+            <div class="col-lg-2">
+                {{-- Log Menu --}}
+                <div class="card mb-4">
+                    <div class="card-header"><i class="fa fa-fw fa-flag"></i> Levels</div>
+                    <div class="list-group list-group-flush log-menu">
+                        {{--@foreach($log->menu() as $levelKey => $item)--}}
+                            {{--@if ($item['count'] === 0)--}}
+                                {{--<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center disabled">--}}
+                                    {{--<span class="level-name">{!! $item['icon'] !!} {{ $item['name'] }}</span>--}}
+                                    {{--<span class="badge empty">{{ $item['count'] }}</span>--}}
+                                {{--</a>--}}
+                            {{--@else--}}
+                                {{--<a href="{{ $item['url'] }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center level-{{ $levelKey }}{{ $level === $levelKey ? ' active' : ''}}">--}}
+                                    {{--<span class="level-name">{!! $item['icon'] !!} {{ $item['name'] }}</span>--}}
+                                    {{--<span class="badge badge-level-{{ $levelKey }}">{{ $item['count'] }}</span>--}}
+                                {{--</a>--}}
+                            {{--@endif--}}
+                        {{--@endforeach--}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                {{-- Log Details --}}
+                <div class=" mb-4">
+
+                    {{-- Search --}}
+                    <form action="/search" method="GET">
+                        <div class=form-group">
+                            <div class="input-group">
+                                <input id="query" name="query" class="form-control"  value="{!! $query !!}" placeholder="Type here to search">
+                                <div class="input-group-append">
+                                    {{--@unless (is_null($query))--}}
+                                        {{--<a href="{{ route('log-viewer::logs.show', [$log->date]) }}" class="btn btn-secondary">--}}
+                                            {{--({{ $entries->count() }} results) <i class="fa fa-fw fa-times"></i>--}}
+                                        {{--</a>--}}
+                                    {{--@endunless--}}
+                                    <button id="search-btn" class="btn btn-primary">
+                                        <span class="fa fa-fw fa-search"></span>
+                                    </button>
                                 </div>
-
-                        </div>
-
-                        <div id="collapse{{ $loop->index }}" class="collapse" aria-labelledby="heading{{ $loop->index }}"
-                             data-parent="#accordion">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                             </div>
                         </div>
+                    </form>
+                </div>
+
+                {{-- Log Entries --}}
+                <div class="card mb-4">
+{{--                    @if ($entries->hasPages())--}}
+                        <div class="card-header">
+                        <span class="badge badge-info float-right">
+                            Page {{ $pagination->currentPage() }} of {{ $pagination->lastPage() }}
+                        </span>
+                        </div>
+                    {{--@endif--}}
+
+                    <div class="table-responsive">
+                        <table id="entries" class="table mb-0">
+                            <thead>
+                            <tr>
+                                <th>ENV</th>
+                                <th style="width: 120px;">Level</th>
+                                <th style="width: 65px;">Time</th>
+                                <th>Header</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @forelse($entries as $key => $entry)
+                                <?php /** @var  Arcanedev\LogViewer\Entities\LogEntry  $entry */ ?>
+                                <tr>
+                                    <td>
+                                        <span class="badge badge-env">{{ "env" }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-level-{{ $entry->level }}">
+                                            {!! $entry->level !!}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-secondary">
+                                            {{ $entry->datetime->format('H:i:s') }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {{ $entry->header }}
+                                    </td>
+                                    <td class="text-right">
+{{--                                        @if ($entry->hasStack())--}}
+                                            <a class="btn btn-sm btn-light" role="button" data-toggle="collapse" href="#log-stack-{{ $key }}" aria-expanded="false" aria-controls="log-stack-{{ $key }}">
+                                                <i class="fa fa-toggle-on"></i> Stack
+                                            </a>
+                                        {{--@endif--}}
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td colspan="5" class="stack py-0">
+                                            <div class="stack-content collapse" id="log-stack-{{ $key }}">
+                                                {{--{!! $entry->stack() !!}--}}
+                                                wrwerwerwerwerew
+                                            </div>
+                                        </td>
+                                    </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center">
+                                        <span class="badge badge-secondary">Empty logs</span>
+                                    </td>
+                                </tr>
+                            @endforelse
+                            </tbody>
+                        </table>
                     </div>
-                @endforeach
+                </div>
+
             </div>
         </div>
-    </div>
-</div>
+@endsection
 
-
-<!-- jQuery for Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<!-- FontAwesome -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<script>
-    $(document).ready(function () {
-
-    });
-</script>
-</body>
-</html>

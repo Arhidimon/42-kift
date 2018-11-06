@@ -3,26 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entities\EntryLog;
+use App\Entities\Pagination;
+use Illuminate\Support\Facades\App;
 
 class LogController extends Controller
 {
-    public function index() {
-        $data = [
-            'logs' => [
-                [
-                    'title' => 'titile 1',
-                    'date' => '13-12-2018 12:12:12',
-                ],
-                [
-                    'title' => 'titile 2',
-                    'date' => '13-12-2018 12:12:12',
-                ],
-                [
-                    'title' => 'titile 3 1231 23 123 123 42gfk jdfg hkfsdg ',
-                    'date' => '13-12-2018 12:12:12',
-                ]
+    private $entries;
 
-            ]
+    public function __construct()
+    {
+        $this->entries = [new EntryLog("12-12- df sdf"), new EntryLog("1231 132  121")];
+    }
+
+    public function index(Request $request) {
+        $data = [
+            'level' => 'all',
+            'query' => $request->get('query'),
+            'entries' => $this->entries,
+            'pagination' => new Pagination(),//class
+
         ];
 
         return view('logs', $data);
