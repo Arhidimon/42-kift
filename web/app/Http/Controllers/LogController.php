@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 
 class LogController extends Controller
 {
-    private $_entries;
+    private $_entries = [];
     private $_allEntries = [];
     private $_currPage = 1;
     private $_elemPerPage = 1;
@@ -25,16 +25,20 @@ class LogController extends Controller
     public function index(Request $request) {
 
         $page = $request->get('page');
+        $query = strtolower(trim($request->get('query')));
+        $query = preg_replace("/\[|\]/", '', $query);
 
         if (!empty($page) && is_numeric($page) && $page > 1) {
             $this->_currPage = $page;
         }
 
-//        dd($this);
+//        dd($query);
+
+        $this->_filterEntries($query);
         $data = [
             'level' => 'all',
             'query' => $request->get('query'),
-            'entries' => $this->_allEntries,
+            'entries' => $this->_entries,
             'pagination' => new Pagination(),//class
 
         ];
@@ -54,5 +58,16 @@ class LogController extends Controller
         }
     }
 
+    private function _filterEntries(string $query) {
+
+        $query = preg_quote($query);
+
+        foreach ($this->_allEntries as $key => $entry) {
+            if (preg_match("/" . $query . "/", $entry->raw)) {
+                $this->_entries[] = $entry;
+            }
+        }
+
+    }
 
 }

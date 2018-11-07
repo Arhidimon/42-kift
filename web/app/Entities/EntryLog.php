@@ -26,10 +26,14 @@ class EntryLog
 
     public $text;
 
+    public $raw;
+
     //more info
 
     public function __construct($raw)
     {
+        $this->raw = strtolower($raw);
+
         //parse
         preg_match_all("/\[(.*?)\]/", $raw, $matches);
 //        dd($matches);

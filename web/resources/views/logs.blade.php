@@ -1,33 +1,6 @@
 @extends('_master')
 
 @section('content')
-    {{--<div class="row">--}}
-    {{--<div class="col-12">--}}
-    {{--<div class="accordion" id="accordion">--}}
-    {{--@foreach($logs as $log)--}}
-    {{--<div class="card d-flex">--}}
-    {{--<div class="card-header" id="heading{{ $loop->index }}" data-toggle="collapse" data-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">--}}
-    {{--<div>--}}
-    {{--<i class="fas fa-angle-double-right"></i> {{str_limit($log['title'], 30)}}--}}
-    {{--<div class="ml-auto">--}}
-    {{--{{$log['date']}}--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
-    {{--</div>--}}
-
-    {{--<div id="collapse{{ $loop->index }}" class="collapse" aria-labelledby="heading{{ $loop->index }}"--}}
-    {{--data-parent="#accordion">--}}
-    {{--<div class="card-body">--}}
-    {{--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--@endforeach--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
 
     <div class="row">
         <div class="col-lg-2">
@@ -56,10 +29,10 @@
             <div class=" mb-4">
 
                 {{-- Search --}}
-                <form action="/search" method="GET">
+                <form action="/" method="GET">
                     <div class=form-group">
                         <div class="input-group">
-                            <input id="query" name="query" class="form-control" value="{!! $query !!}"
+                            <input id="query" name="query" class="form-control" value="{{ $query }}"
                                    placeholder="Type here to search">
                             <div class="input-group-append">
                                 {{--@unless (is_null($query))--}}
@@ -109,7 +82,7 @@
                                 </td>
                                 <td>
                                         <span class="badge badge-secondary">
-                                            {{ $entry->datetime->format('d-m-Y') }}
+                                            {{ $entry->datetime->format('Y-m-d') }}
                                         </span>
                                 </td>
                                 <td>
