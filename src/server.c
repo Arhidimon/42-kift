@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/kift.h"
 #include "../include/server.h"
 #include <unistd.h>
 #include <stdio.h>
@@ -36,9 +37,9 @@ int main(int argc, char const *argv[])
 	struct sockaddr_in address;
 	int opt = 1;
 	int addrlen = sizeof(address);
-	char buffer[1024] = {0};
+	char *str;
 	char *ans = "Answer";
-
+	size_t len;
 
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
 	{
@@ -76,11 +77,13 @@ int main(int argc, char const *argv[])
 			perror("accept");
 			exit(EXIT_FAILURE);
 		}
-		valread = read(new_socket, buffer, 1024);
-		log_term(buffer);
+		str = read_string(new_socket);
+		log_term(str);
 		//action(buffer, &ans);
-		log_term(ans);
-		send(new_socket, ans, strlen(ans), 0);
+		//log_term(ans);
+		free(str);
+		send_string(new_socket, ans);
+		//send(new_socket, ans, strlen(ans), 0);
 	}
 	return 0;
 }

@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/kift.h"
 #include "../include/client.h"
-
 #include <stdio.h>
 #include <sys/socket.h>
 #include <stdlib.h>
 #include <netinet/in.h>
 #include <string.h>
-#define PORT 8080
+#include <arpa/inet.h>
+
 
 int main(int argc, char const *argv[])
 {
 	struct sockaddr_in address;
 	int sock = 0, valread;
 	struct sockaddr_in serv_addr;
-
-	char buffer[1024] = {0};
+	size_t len;
+	char *ans;
 	// TODO check for argc
 	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
@@ -45,9 +46,10 @@ int main(int argc, char const *argv[])
 		printf("\nConnection Failed \n");
 		return -1;
 	}
-	send(sock , argv[2] , strlen(argv[2]) , 0 ); // FIXME ft_strlen
-	printf("String from client sent\n");
-	valread = read( sock , buffer, 1024);
-	printf("Answer:%s\n",buffer );
+	len = strlen(argv[2]);
+	send_string(sock, argv[2]);
+	ans = read_string(sock);
+
+	printf("Answer:%s\n", ans);
 	return 0;
 }
