@@ -8,8 +8,8 @@ OBJS_DIR    = ./obj
 HEADERS_DIR = ./include
 LIBFT_DIR   = ./libft
 
-SRCS_S        = server.c
-SRCS_C        = client.c
+SRCS_S        = server.c message.c
+SRCS_C        = client.c message.c
 
 
 OBJS_S        = $(SRCS_S:.c=.o)
