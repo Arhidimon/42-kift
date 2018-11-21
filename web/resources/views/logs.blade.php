@@ -2,29 +2,9 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-lg-2">
-            {{-- Log Menu --}}
-            <div class="card mb-4">
-                <div class="card-header"><i class="fa fa-fw fa-flag"></i> Levels</div>
-                <div class="list-group list-group-flush log-menu">
-                    {{--@foreach($log->menu() as $levelKey => $item)--}}
-                    {{--@if ($item['count'] === 0)--}}
-                    {{--<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center disabled">--}}
-                    {{--<span class="level-name">{!! $item['icon'] !!} {{ $item['name'] }}</span>--}}
-                    {{--<span class="badge empty">{{ $item['count'] }}</span>--}}
-                    {{--</a>--}}
-                    {{--@else--}}
-                    {{--<a href="{{ $item['url'] }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center level-{{ $levelKey }}{{ $level === $levelKey ? ' active' : ''}}">--}}
-                    {{--<span class="level-name">{!! $item['icon'] !!} {{ $item['name'] }}</span>--}}
-                    {{--<span class="badge badge-level-{{ $levelKey }}">{{ $item['count'] }}</span>--}}
-                    {{--</a>--}}
-                    {{--@endif--}}
-                    {{--@endforeach--}}
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-10">
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-lg-10">
             {{-- Log Details --}}
             <div class=" mb-4">
 
@@ -105,9 +85,8 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="stack py-0">
-                                    <div class="stack-content collapse" id="log-stack-{{ $key }}">
-                                        {{--{!! $entry->stack() !!}--}}
-                                        {{ $entry->text }}
+                                    <div class="stack-content collapse mt-0" id="log-stack-{{ $key }}">
+                                        {{ $entry->text }}<br>
                                     </div>
                                 </td>
                             </tr>
