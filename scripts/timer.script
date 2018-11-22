@@ -1,0 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    timer.script                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/20 17:24:48 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/20 17:37:34 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "Google Chrome"
+	open location "https://www.timeanddate.com/timer/"
+	activate
+	end tell'

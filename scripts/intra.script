@@ -1,0 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    intra.script                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/04 21:10:05 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/20 15:49:18 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "Google Chrome"
+	close windows
+	open location "https://intra.42.fr"
+	activate
+	end tell'

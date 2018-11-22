@@ -1,0 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    events.script                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/20 16:45:47 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/20 16:46:01 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "Google Chrome"
+	open location "https://kiev.vgorode.ua/afisha/"
+	activate
+	end tell'

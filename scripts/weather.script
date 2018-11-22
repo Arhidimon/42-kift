@@ -1,0 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    weather.script                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/20 16:15:19 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/20 16:16:08 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "Google Chrome"
+	open location "https://meteo.gov.ua/ua/33345/current/ukraine/"
+	activate
+	end tell'

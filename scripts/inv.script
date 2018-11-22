@@ -1,0 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    inv.script                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/20 16:54:05 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/22 13:53:59 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "System Events"
+    				key code 28 using {control down, option down, command down}
+				end tell'

@@ -1,0 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    text.script                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/20 17:18:36 by omaiko            #+#    #+#              #
+#    Updated: 2018/11/22 14:17:48 by omaiko           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+osascript -e 'tell application "TextEdit"
+					activate
+					make new document
+				end tell
+				tell application "System Events"
+					keystroke "Hi, corrector!"
+				end tell
+				say "Hi, corrector!" using "Zarvox"'
