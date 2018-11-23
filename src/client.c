@@ -27,6 +27,11 @@ int main(int argc, char const *argv[])
 	struct sockaddr_in serv_addr;
 	size_t len;
 	char *ans;
+
+	//voice rec
+	char	*speech;
+
+
 	// TODO check for argc
 	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
@@ -51,5 +56,16 @@ int main(int argc, char const *argv[])
 	ans = read_string(sock);
 
 	printf("Answer:%s\n", ans);
+
+	//Voice recognition infinity cycle.
+	//If successful, the var 'speech' will contain the recognized string.
+	while (1) {
+		speech = NULL;
+		speech = get_user_speech();
+		if (!speech || strlen(speech) == 0) {
+			printf("%s\n","Your speech is not recognized.");
+			continue;
+		}
+	}
 	return 0;
 }
