@@ -51,11 +51,12 @@ int main(int argc, char const *argv[])
 		printf("\nConnection Failed \n");
 		return -1;
 	}
-	len = strlen(argv[2]);
-	send_string(sock, argv[2]);
-	ans = read_string(sock);
+//	len = strlen(argv[2]);
+//	send_string(sock, argv[2]);
+//	ans = read_string(sock);
+//	printf("Answer:%s\n", ans);
 
-	printf("Answer:%s\n", ans);
+
 
 	//Voice recognition infinity cycle.
 	//If successful, the var 'speech' will contain the recognized string.
@@ -64,8 +65,14 @@ int main(int argc, char const *argv[])
 		speech = get_user_speech();
 		if (!speech || strlen(speech) == 0) {
 			printf("%s\n","Your speech is not recognized.");
-			continue;
+			continue ;
+		} else {
+			len = strlen(speech);
+			send_string(sock,speech);
+			ans = read_string(sock);
+			printf("Answer:%s\n", ans);
 		}
+
 	}
 	return 0;
 }
