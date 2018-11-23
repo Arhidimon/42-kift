@@ -11,7 +11,8 @@ LIBFT_DIR   = ./libft
 SRCS_S        = server.c message.c
 SRCS_C        = client.c message.c get_user_speech.c
 
-
+SPHINX_FLAGS = -DMODELDIR=\"`pkg-config --variable=modeldir pocketsphinx`\" \
+			   -DDICTDIR=\"$(shell pwd)/\"
 
 OBJS_S        = $(SRCS_S:.c=.o)
 OBJS_C        = $(SRCS_C:.c=.o)
@@ -35,7 +36,7 @@ $(SERVER)		: $(OBJS_DIR) $(OBJS_S) $(HEADERS)
 	$(CC) $(CFLAGS) -o $(SERVER) $(TO_LINKING_S)
 
 $(CLIENT)		: $(OBJS_DIR) $(OBJS_C) $(HEADERS)
-	$(CC) $(CFLAGS) -o $(CLIENT) $(TO_LINKING_C)
+	$(CC) $(CFLAGS) -o $(CLIENT) $(TO_LINKING_C) $(SPHINX_FLAGS)
 
 
 $(LIBFT)    :
@@ -46,7 +47,7 @@ $(OBJS_DIR) :
 	@printf "\e[38;5;46m$(OBJS_DIR)    FOLDER CREATED\e[0m\n"
 
 $(OBJS_C)     : %.o : %.c $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES)
+	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES) $(SPHINX_FLAGS)
 
 $(OBJS_S)     : %.o : %.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES)
