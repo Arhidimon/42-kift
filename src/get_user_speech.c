@@ -66,9 +66,9 @@ char		*get_user_speech(void)
     cmd_ln_t		*config;
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
-                         "-hmm", "/Users/dhromads/Documents/KIFT/KIFTbb/en-us-adapt",
-                         "-lm", "/Users/dhromads/.brew/Cellar/cmu-pocketsphinx/HEAD-2da38af/share/pocketsphinx/model/en-us/en-us.lm.bin",
-            "-dict", "/Users/dhromads/Documents/KIFT/KIFTbb/dict2.dic",
+                         "-hmm", DICTDIR "en-us-adapt",
+                         "-lm", MODELDIR "/en-us/en-us.lm.bin",
+            "-dict", DICTDIR "dict2.dic",
             "-logfn", "/dev/null", NULL);
     if (config == NULL)
     {
