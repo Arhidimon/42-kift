@@ -32,8 +32,6 @@ int main(int argc, char const *argv[])
 	char	*speech;
 	if(argc != 2)
 		exit(0);
-
-	// TODO check for argc
 	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		printf("\n Socket creation error \n");
@@ -60,7 +58,9 @@ int main(int argc, char const *argv[])
 		{
 			printf("%s\n","Your speech is not recognized.");
 			continue ;
-		} else {
+		}
+		else
+			{
 			len = strlen(speech);
 			send_string(sock,speech);
 			ans = read_string(sock);
