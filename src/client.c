@@ -30,7 +30,8 @@ int main(int argc, char const *argv[])
 
 	//voice rec
 	char	*speech;
-
+	if(argc != 2)
+		exit(0);
 
 	// TODO check for argc
 	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -51,19 +52,12 @@ int main(int argc, char const *argv[])
 		printf("\nConnection Failed \n");
 		return -1;
 	}
-//	len = strlen(argv[2]);
-//	send_string(sock, argv[2]);
-//	ans = read_string(sock);
-//	printf("Answer:%s\n", ans);
-
-
-
-	//Voice recognition infinity cycle.
-	//If successful, the var 'speech' will contain the recognized string.
-	while (1) {
+	while (1)
+	{
 		speech = NULL;
 		speech = get_user_speech();
-		if (!speech || strlen(speech) == 0) {
+		if (!speech || strlen(speech) == 0)
+		{
 			printf("%s\n","Your speech is not recognized.");
 			continue ;
 		} else {

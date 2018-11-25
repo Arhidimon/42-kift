@@ -9,7 +9,7 @@ HEADERS_DIR = ./include
 LIBFT_DIR   = ./libft
 
 SRCS_S        = server.c message.c
-SRCS_C        = client.c message.c get_user_speech.c
+SRCS_C        = client.c message.c  get_user_speech.c
 
 SPHINX_FLAGS = -DMODELDIR=\"`pkg-config --variable=modeldir pocketsphinx`\" \
 			   -DDICTDIR=\"$(shell pwd)/\"
@@ -20,7 +20,7 @@ OBJS_C        = $(SRCS_C:.c=.o)
 VPATH       = $(SRCS_DIR) $(OBJS_DIR)
 
 INCLUDES    = -I include/ \
-              -I `pkg-config --cflags --libs pocketsphinx sphinxbase`
+              #-I `pkg-config --cflags --libs pocketsphinx sphinxbase`
 
 
 LIBFT       = $(LIBFT_DIR)/libft.a
