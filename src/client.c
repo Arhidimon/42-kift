@@ -19,6 +19,12 @@
 #include <string.h>
 #include <arpa/inet.h>
 
+void say(char *str)
+{
+	char buf[256];
+	snprintf(buf, sizeof buf, "say \"-vMoira\" \"%s\"", str);
+	system(buf);
+}
 
 int main(int argc, char const *argv[])
 {
@@ -60,11 +66,13 @@ int main(int argc, char const *argv[])
 			continue ;
 		}
 		else
-			{
+		{
 			len = strlen(speech);
 			send_string(sock,speech);
 			ans = read_string(sock);
 			printf("Answer:%s\n", ans);
+			say(ans);
+			free(ans);
 		}
 
 	}

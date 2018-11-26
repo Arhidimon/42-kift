@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_timer.c                                     :+:      :+:    :+:   */
+/*   choose_play_music.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 17:56:07 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:46:02 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:25:05 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:45:09 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_timer(void)
+char	*choose_play_music(void)
 {
-	system("sh ../scripts/timer.script");
-	return (strdup("I am not allowed to use crontab. Use this site.\n"));
+	system("sh ./scripts/play_music.script");
+	return (strdup("Enjoy the best song that I have in my database.\n"));
 }

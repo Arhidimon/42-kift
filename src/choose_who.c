@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_where.c                                     :+:      :+:    :+:   */
+/*   choose_who.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 15:32:52 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:43:37 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:34:23 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:43:48 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_where(void)
+char	*choose_who(void)
 {
-	system("sh ../scripts/where_is_connected.script");
-	return (strdup("You are now connected at that place.\n"));
+	system("sh ./scripts/who_is_connected.script");
+	return (strdup("This person connected at this place.\n"));
 }

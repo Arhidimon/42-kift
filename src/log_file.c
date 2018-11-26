@@ -22,13 +22,7 @@ void	log_file(char *command, char *more_data)
 {
 	FILE *f;
 
-	if (!(f = fopen("../kift.log", "a+")))
+	if (!(f = fopen("kift.log", "a+")))
 		return ;
 	fprintf(f, "[%s] [%s] [success] [%s]\n", get_datetime(), command, more_data);
-
 }
-
-//
-//void main(){
-//	log_file("best command 2", "do smt mazafaka");
-//}
