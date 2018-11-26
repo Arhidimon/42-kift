@@ -8,8 +8,29 @@ OBJS_DIR    = ./obj
 HEADERS_DIR = ./include
 LIBFT_DIR   = ./libft
 
-SRCS_S        = server.c message.c
-SRCS_C        = client.c message.c  get_user_speech.c
+SRCS_S        = server.c message.c choose_history.c choose_own_music.c log_file.c\
+choose_alarm.c\
+choose_brightness_down.c\
+choose_brightness_up.c\
+choose_events.c\
+choose_intra.c\
+choose_inversion.c\
+choose_lights_off.c\
+choose_lights_on.c\
+choose_mail.c\
+choose_play_music.c\
+choose_screenshot.c\
+choose_search_web.c\
+choose_sound_off.c\
+choose_sound_on.c\
+choose_text.c\
+choose_timer.c\
+choose_traffic.c\
+choose_weather.c\
+choose_where.c\
+choose_who.c
+
+SRCS_C        = client.c message.c get_user_speech.c
 
 SPHINX_FLAGS = -DMODELDIR=\"`pkg-config --variable=modeldir pocketsphinx`\" \
 			   -DDICTDIR=\"$(shell pwd)/\"

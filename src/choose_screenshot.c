@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_alarm.c                                     :+:      :+:    :+:   */
+/*   choose_screenshot.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 14:59:15 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:34:45 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:28:25 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:35:49 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_alarm(void)
+char	*choose_screenshot(void)
 {
-	system("sh ../scripts/alarm.script");
-	return (strdup("I am not allowed to use crontab. Use this site.\n"));
+	system("sh ./scripts/screenshot.script");
+	return (strdup("Oh, you are too lazy. O'K, I will do this.\n"));
 }

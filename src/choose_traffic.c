@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_own_music.c                                 :+:      :+:    :+:   */
+/*   choose_traffic.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 15:50:06 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:45:24 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:53:12 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:36:06 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_own_music(void)
+char	*choose_traffic(void)
 {
-	system("sh ../scripts/own_music_play.script");
-	return (strdup("I am trying to singing on my own.\n"));
+	system("sh ./scripts/traffic.script");
+	return (strdup("Traffic jams in your city.\n"));
 }

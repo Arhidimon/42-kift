@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_who.c                                       :+:      :+:    :+:   */
+/*   choose_sound_off.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 15:34:23 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:43:48 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 17:52:11 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:40:12 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_who(void)
+char	*choose_sound_off(void)
 {
-	system("sh ../scripts/who_is_connected.script");
-	return (strdup("This person connected at this place.\n"));
+	system("sh ./scripts/sound_off.script");
+	return (strdup("Sound off. Shhhh.\n"));
 }

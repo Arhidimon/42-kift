@@ -3,9 +3,11 @@
 
 #define PORT 8080
 
+#include <string.h>
+
 void send_string(int socket_fd, const char *str);
 char *read_string(int socket_fd);
-
+void	log_file(char *command, char *more_data);
 /*
 ** Script prototypes
 */

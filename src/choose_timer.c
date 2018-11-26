@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_brightness_up.c                             :+:      :+:    :+:   */
+/*   choose_timer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:03:24 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:36:55 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 17:56:07 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:46:02 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_brightness_up(void)
+char	*choose_timer(void)
 {
-	system("sh ../scripts/brightness_up.script");
-	return (strdup("More light for you <3.\n"));
+	system("sh ./scripts/timer.script");
+	return (strdup("I am not allowed to use crontab. Use this site.\n"));
 }

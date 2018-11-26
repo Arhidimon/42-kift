@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_sound_on.c                                  :+:      :+:    :+:   */
+/*   choose_inversion.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 17:51:01 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:43:12 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:23:45 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:35:31 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_sound_on(void)
+char	*choose_inversion(void)
 {
-	system("sh ../scripts/sound_on.script");
-	return (strdup("Sound on. Enjoy listening to smth.\n"));
+	system("sh ./scripts/inv.script");
+	return (strdup("I have no idea what I am doing.\n"));
 }

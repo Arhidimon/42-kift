@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_lights_off.c                                :+:      :+:    :+:   */
+/*   choose_sound_on.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:58:08 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:37:23 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 17:51:01 by omaiko            #+#    #+#             */
+/*   Updated: 2018/11/26 18:43:12 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
 
-char	*choose_lights_off(void)
+char	*choose_sound_on(void)
 {
-	system("sh ../scripts/lights_off.script");
-	return (strdup("All lights off. Good night.\n"));
+	system("sh ./scripts/sound_on.script");
+	return (strdup("Sound on. Enjoy listening to smth.\n"));
 }
