@@ -20,7 +20,7 @@ OBJS_C        = $(SRCS_C:.c=.o)
 VPATH       = $(SRCS_DIR) $(OBJS_DIR)
 
 INCLUDES    = -I include/ \
-              #-I `pkg-config --cflags --libs pocketsphinx sphinxbase`
+              -I `pkg-config --cflags --libs pocketsphinx sphinxbase`
 
 
 LIBFT       = $(LIBFT_DIR)/libft.a
