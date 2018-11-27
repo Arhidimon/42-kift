@@ -35,5 +35,6 @@ char	*choose_events(void);
 char	*choose_brightness_up(void);
 char	*choose_brightness_down(void);
 char	*choose_alarm(void);
+char	*choose_joke(void);
 
 #endif //KIFT_MESSAGE_H

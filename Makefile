@@ -28,7 +28,8 @@ choose_timer.c\
 choose_traffic.c\
 choose_weather.c\
 choose_where.c\
-choose_who.c
+choose_who.c\
+choose_joke.c
 
 SRCS_C        = client.c message.c get_user_speech.c
 
