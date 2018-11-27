@@ -24,5 +24,9 @@ void	log_file(char *command, char *more_data)
 
 	if (!(f = fopen("kift.log", "a+")))
 		return ;
-	fprintf(f, "[%s] [%s] [success] [%s]\n", get_datetime(), command, more_data);
+	if (strcmp("Sorry, try again!", more_data))
+		fprintf(f, "[%s] [%s] [success] [%s]\n", get_datetime(), command, more_data);
+	else
+		fprintf(f, "[%s] [%s] [failed] [%s]\n", get_datetime(), command, more_data);
+
 }

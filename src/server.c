@@ -118,7 +118,7 @@ int main(int argc, char const *argv[])
 
 		send_string(new_socket, ans);
 		printf("[Server send] %s\n", ans);
-		log_file(str, ans);
+		log_file(ans, str);
 		free(str);
 		if (ans)
 			free(ans);
