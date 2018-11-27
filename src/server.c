@@ -111,22 +111,11 @@ int main(int argc, char const *argv[])
 		perror("accept");
 		exit(EXIT_FAILURE);
 	}
-//	pid_t childProcess = fork();
-//	if (childProcess == (pid_t)-1) {
-//		perror("Unable to create new process for client connection");
-//		exit(1);
-//	}
-
 	while (1)
 	{
-
 		str = read_string(new_socket);
-		//log_term(str);
-		printf("[Server get] %s\n", str);
 		ans = action(str);
-
 		send_string(new_socket, ans);
-		printf("[Server send] %s\n", ans);
 		log_file(ans, str);
 		free(str);
 		if (ans)
