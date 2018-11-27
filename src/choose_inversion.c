@@ -15,5 +15,5 @@
 char	*choose_inversion(void)
 {
 	system("sh ./scripts/inv.script");
-	return (strdup("I have no idea what I am doing."));
+	return (strdup("I have no idea what I am> doing."));
 }
