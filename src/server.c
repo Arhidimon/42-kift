@@ -69,6 +69,8 @@ char *action(char *str)
 		return choose_where();
 	else if (!strcmp(str, "WHO IS CONNECTED"))
 		return choose_who();
+	else if (!strcmp(str, "SEARCH JOKE"))
+		return choose_joke();
 	else
 		return (strdup("Sorry, try again!"));
 }
