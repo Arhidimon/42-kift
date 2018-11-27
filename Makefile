@@ -90,8 +90,8 @@ leaks       :
 	leaks $(CLIENT) $(SERVER)
 
 test		:
-	make
-	./$(SERVER) &
+	make re
+	./$(SERVER)&
 	./$(CLIENT) 127.0.0.1
 
 author		:
