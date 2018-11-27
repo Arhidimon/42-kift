@@ -6,7 +6,7 @@
 /*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 15:09:57 by dbezruch          #+#    #+#             */
-/*   Updated: 2018/10/26 17:09:08 by dbezruch         ###   ########.fr       */
+/*   Updated: 2018/11/27 18:00:25 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ char *action(char *str)
 {
 	if (!strcmp(str, "history"))
 		return choose_history();
-	else if (!strcmp(str, "music"))
+	else if (!strcmp(str, "search music"))
 		return choose_play_music();
-	else if (!strcmp(str, "sing song"))
+	else if (!strcmp(str, "play music"))
 		return choose_own_music();
-	else if (!strcmp(str, "alarm"))
+	else if (!strcmp(str, "set alarm"))
 		return choose_alarm();
-	else if (!strcmp(str, "events"))
+	else if (!strcmp(str, "check events"))
 		return choose_events();
 	else if (!strcmp(str, "intra"))
 		return choose_intra();
-	else if (!strcmp(str, "brightness up"))
+	else if (!strcmp(str, "brightness increase"))
 		return choose_brightness_up();
-	else if (!strcmp(str, "brightness down"))
+	else if (!strcmp(str, "brightness decrease"))
 		return choose_brightness_down();
 	else if (!strcmp(str, "lights on"))
 		return choose_lights_on();
@@ -49,25 +49,25 @@ char *action(char *str)
 		return choose_lights_off();
 	else if (!strcmp(str, "inversion"))
 		return choose_inversion();
-	else if (!strcmp(str, "mail"))
+	else if (!strcmp(str, "send email"))
 		return choose_mail();
 	else if (!strcmp(str, "screenshot"))
 		return choose_screenshot();
-	else if (!strcmp(str, "sound on"))
+	else if (!strcmp(str, "volume on"))
 		return choose_sound_on();
-	else if (!strcmp(str, "sound off"))
+	else if (!strcmp(str, "volume off"))
 		return choose_sound_off();
 	else if (!strcmp(str, "text"))
 		return choose_text();
-	else if (!strcmp(str, "timer"))
+	else if (!strcmp(str, "set timer"))
 		return choose_timer();
-	else if (!strcmp(str, "traffic"))
+	else if (!strcmp(str, "check traffic"))
 		return choose_traffic();
-	else if (!strcmp(str, "weather"))
+	else if (!strcmp(str, "check weather"))
 		return choose_weather();
-	else if (!strcmp(str, "where"))
+	else if (!strcmp(str, "where is connected"))
 		return choose_where();
-	else if (!strcmp(str, "who"))
+	else if (!strcmp(str, "who is connected"))
 		return choose_who();
 	else
 		return (strdup("Sorry, try again!"));
