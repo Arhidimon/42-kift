@@ -6,7 +6,7 @@
 /*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 15:09:57 by dbezruch          #+#    #+#             */
-/*   Updated: 2018/10/26 17:09:08 by dbezruch         ###   ########.fr       */
+/*   Updated: 2018/11/27 18:53:10 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,47 +27,47 @@ void log_term(char *str)
 
 char *action(char *str)
 {
-	if (!strcmp(str, "history"))
+	if (!strcmp(str, "HISTORY"))
 		return choose_history();
-	else if (!strcmp(str, "music"))
+	else if (!strcmp(str, "SEARCH MUSIC"))
 		return choose_play_music();
-	else if (!strcmp(str, "sing song"))
+	else if (!strcmp(str, "PLAY MUSIC"))
 		return choose_own_music();
-	else if (!strcmp(str, "alarm"))
+	else if (!strcmp(str, "SET ALARM"))
 		return choose_alarm();
-	else if (!strcmp(str, "events"))
+	else if (!strcmp(str, "CHECK EVENTS"))
 		return choose_events();
-	else if (!strcmp(str, "intra"))
+	else if (!strcmp(str, "INTRA"))
 		return choose_intra();
-	else if (!strcmp(str, "brightness up"))
+	else if (!strcmp(str, "BRIGHTNESS INCREASE"))
 		return choose_brightness_up();
-	else if (!strcmp(str, "brightness down"))
+	else if (!strcmp(str, "BRIGHTNESS DECREASE"))
 		return choose_brightness_down();
-	else if (!strcmp(str, "lights on"))
+	else if (!strcmp(str, "LIGHTS ON"))
 		return choose_lights_on();
-	else if (!strcmp(str, "lights off"))
+	else if (!strcmp(str, "LIGHTS OFF"))
 		return choose_lights_off();
-	else if (!strcmp(str, "inversion"))
+	else if (!strcmp(str, "INVERSION"))
 		return choose_inversion();
-	else if (!strcmp(str, "mail"))
+	else if (!strcmp(str, "SEND EMAIL"))
 		return choose_mail();
-	else if (!strcmp(str, "screenshot"))
+	else if (!strcmp(str, "SCREENSHOT"))
 		return choose_screenshot();
-	else if (!strcmp(str, "sound on"))
+	else if (!strcmp(str, "VOLUME ON"))
 		return choose_sound_on();
-	else if (!strcmp(str, "sound off"))
+	else if (!strcmp(str, "VOLUME OFF"))
 		return choose_sound_off();
-	else if (!strcmp(str, "text"))
+	else if (!strcmp(str, "TEXT"))
 		return choose_text();
-	else if (!strcmp(str, "timer"))
+	else if (!strcmp(str, "SET TIMER"))
 		return choose_timer();
-	else if (!strcmp(str, "traffic"))
+	else if (!strcmp(str, "CHECK TRAFFIC"))
 		return choose_traffic();
-	else if (!strcmp(str, "weather"))
+	else if (!strcmp(str, "CHECK WEATHER"))
 		return choose_weather();
-	else if (!strcmp(str, "where"))
+	else if (!strcmp(str, "WHERE IS CONNECTED"))
 		return choose_where();
-	else if (!strcmp(str, "who"))
+	else if (!strcmp(str, "WHO IS CONNECTED"))
 		return choose_who();
 	else
 		return (strdup("Sorry, try again!"));
