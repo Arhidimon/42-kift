@@ -15,5 +15,5 @@
 char	*choose_mail(void)
 {
 	system("sh ./scripts/mail.script");
-	return (strdup("In theory this should work properly. But... :\)\n"));
+	return (strdup("In theory this should work properly. But..."));
 }

@@ -15,5 +15,5 @@
 char	*choose_brightness_up(void)
 {
 	system("sh ./scripts/brightness_up.script");
-	return (strdup("More light for you <3.\n"));
+	return (strdup("More light for you <3."));
 }

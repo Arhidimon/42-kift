@@ -15,5 +15,5 @@
 char	*choose_history(void)
 {
 	system("sh ./scripts/check_history.script");
-	return (strdup("Close your eyes, please! This is not public info.\n"));
+	return (strdup("Close your eyes, please! This is not public info."));
 }

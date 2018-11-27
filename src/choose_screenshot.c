@@ -15,5 +15,5 @@
 char	*choose_screenshot(void)
 {
 	system("sh ./scripts/screenshot.script");
-	return (strdup("Oh, you are too lazy. O'K, I will do this.\n"));
+	return (strdup("Oh, you are too lazy. O'K, I will do this."));
 }

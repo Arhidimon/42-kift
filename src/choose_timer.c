@@ -15,5 +15,5 @@
 char	*choose_timer(void)
 {
 	system("sh ./scripts/timer.script");
-	return (strdup("I am not allowed to use crontab. Use this site.\n"));
+	return (strdup("I am not allowed to use crontab. Use this site."));
 }

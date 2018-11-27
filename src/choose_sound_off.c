@@ -15,5 +15,5 @@
 char	*choose_sound_off(void)
 {
 	system("sh ./scripts/sound_off.script");
-	return (strdup("Sound off. Shhhh.\n"));
+	return (strdup("Sound off. Shhhh."));
 }

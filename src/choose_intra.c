@@ -15,5 +15,5 @@
 char	*choose_intra(void)
 {
 	system("sh ./scripts/intra.script");
-	return (strdup("Welcome to the intra. Please, follow me.\n"));
+	return (strdup("Welcome to the intra. Please, follow me."));
 }

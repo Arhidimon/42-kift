@@ -15,5 +15,5 @@
 char	*choose_own_music(void)
 {
 	system("sh ./scripts/own_music_play.script");
-	return (strdup("I am trying to singing on my own.\n"));
+	return (strdup("I am trying to singing on my own."));
 }

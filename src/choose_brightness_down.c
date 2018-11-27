@@ -15,5 +15,5 @@
 char	*choose_brightness_down(void)
 {
 	system("sh ./scripts/brightness_down.script");
-	return (strdup("Less light for you.\n"));
+	return (strdup("Less light for you."));
 }

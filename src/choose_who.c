@@ -15,5 +15,5 @@
 char	*choose_who(void)
 {
 	system("sh ./scripts/who_is_connected.script");
-	return (strdup("This person connected at this place.\n"));
+	return (strdup("This person connected at this place."));
 }

@@ -15,5 +15,5 @@
 char	*choose_alarm(void)
 {
 	system("sh ./scripts/alarm.script");
-	return (strdup("I am not allowed to use crontab. Use this site.\n"));
+	return (strdup("I am not allowed to use crontab. Use this site."));
 }

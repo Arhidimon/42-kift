@@ -15,5 +15,5 @@
 char	*choose_search_web(void)
 {
 	system("sh ./scripts/search_the_web.script");
-	return (strdup("You can surf the Internet smth like this.\n"));
+	return (strdup("You can surf the Internet smth like this."));
 }

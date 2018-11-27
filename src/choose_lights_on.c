@@ -15,5 +15,5 @@
 char	*choose_lights_on(void)
 {
 	system("sh ./scripts/lights_on.script");
-	return (strdup("All lights on. Wake up.\n"));
+	return (strdup("All lights on. Wake up."));
 }

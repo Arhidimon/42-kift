@@ -15,5 +15,5 @@
 char	*choose_traffic(void)
 {
 	system("sh ./scripts/traffic.script");
-	return (strdup("Traffic jams in your city.\n"));
+	return (strdup("Traffic jams in your city."));
 }

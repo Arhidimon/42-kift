@@ -15,5 +15,5 @@
 char	*choose_weather(void)
 {
 	system("sh ./scripts/weather.script");
-	return (strdup("Current weather forecast in your country.\n"));
+	return (strdup("Current weather forecast in your country."));
 }

@@ -30,6 +30,8 @@ char *action(char *str)
 	if (!strcmp(str, "history"))
 		return choose_history();
 	else if (!strcmp(str, "music"))
+		return choose_play_music();
+	else if (!strcmp(str, "sing song"))
 		return choose_own_music();
 	else if (!strcmp(str, "alarm"))
 		return choose_alarm();
@@ -113,12 +115,13 @@ int main(int argc, char const *argv[])
 		//log_term(str);
 		printf("[Server get] %s\n", str);
 		ans = action(str);
-		//free(str);
+
 		send_string(new_socket, ans);
 		printf("[Server send] %s\n", ans);
-		log_file("str", ans);
-		//if (ans)
-		//	free(ans);
+		log_file(str, ans);
+		free(str);
+		if (ans)
+			free(ans);
 	}
 	return 0;
 }

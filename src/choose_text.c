@@ -15,5 +15,5 @@
 char	*choose_text(void)
 {
 	system("sh ./scripts/text.script");
-	return (strdup("I can use text editor for conversation.\n"));
+	return (strdup("I can use text editor for conversation."));
 }
