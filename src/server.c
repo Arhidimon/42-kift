@@ -6,7 +6,7 @@
 /*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 15:09:57 by dbezruch          #+#    #+#             */
-/*   Updated: 2018/11/27 18:53:10 by omaiko           ###   ########.fr       */
+/*   Updated: 2018/11/27 19:28:30 by omaiko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void log_term(char *str)
 
 char *action(char *str)
 {
-	if (!strcmp(str, "HISTORY"))
+	if (!strcmp(str, "CHECK HISTORY"))
 		return choose_history();
 	else if (!strcmp(str, "SEARCH MUSIC"))
 		return choose_play_music();
@@ -37,7 +37,7 @@ char *action(char *str)
 		return choose_alarm();
 	else if (!strcmp(str, "CHECK EVENTS"))
 		return choose_events();
-	else if (!strcmp(str, "INTRA"))
+	else if (!strcmp(str, "OPEN BROWSER"))
 		return choose_intra();
 	else if (!strcmp(str, "BRIGHTNESS INCREASE"))
 		return choose_brightness_up();
@@ -47,7 +47,7 @@ char *action(char *str)
 		return choose_lights_on();
 	else if (!strcmp(str, "LIGHTS OFF"))
 		return choose_lights_off();
-	else if (!strcmp(str, "INVERSION"))
+	else if (!strcmp(str, "JOKE"))
 		return choose_inversion();
 	else if (!strcmp(str, "SEND EMAIL"))
 		return choose_mail();
@@ -57,7 +57,7 @@ char *action(char *str)
 		return choose_sound_on();
 	else if (!strcmp(str, "VOLUME OFF"))
 		return choose_sound_off();
-	else if (!strcmp(str, "TEXT"))
+	else if (!strcmp(str, "OPEN"))
 		return choose_text();
 	else if (!strcmp(str, "SET TIMER"))
 		return choose_timer();
