@@ -91,7 +91,8 @@ leaks       :
 
 test		:
 	make
-	./$(NAME) 4
+	./$(SERVER) &
+	./$(CLIENT) 127.0.0.1
 
 author		:
 	cat -e author

@@ -4,6 +4,7 @@
 #define PORT 8080
 
 #include <string.h>
+#include <stdlib.h>
 
 void send_string(int socket_fd, const char *str);
 char *read_string(int socket_fd);

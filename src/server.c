@@ -103,11 +103,18 @@ int main(int argc, char const *argv[])
 		perror("listen");
 		exit(EXIT_FAILURE);
 	}
+	system("echo \"Server started at:\";ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\\.){3}[0-9]*).*/\\2/p'");
 	if ((new_socket = accept(server_fd, (struct sockaddr *) &address,
 							 (socklen_t * ) & addrlen)) < 0) {
 		perror("accept");
 		exit(EXIT_FAILURE);
 	}
+//	pid_t childProcess = fork();
+//	if (childProcess == (pid_t)-1) {
+//		perror("Unable to create new process for client connection");
+//		exit(1);
+//	}
+
 	while (1)
 	{
 

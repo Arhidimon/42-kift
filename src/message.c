@@ -7,18 +7,28 @@ void send_string(int socket_fd, const char *str)
 	size_t len;
 
 	len = strlen(str);
-	write(socket_fd, &len, sizeof(size_t));
-	write(socket_fd, str, len);
+	if (write(socket_fd, &len, sizeof(size_t)) < 0 || write(socket_fd, str, len))
+	{
+		perror("listen");
+		exit(EXIT_FAILURE);
+	}
 }
 
 char *read_string(int socket_fd)
 {
 	size_t len;
 	char	*str;
-
-	read(socket_fd, &len, sizeof(size_t));
+	if (read(socket_fd, &len, sizeof(size_t)) < 0)
+	{
+		perror("listen");
+		exit(EXIT_FAILURE);
+	}
 	str = malloc(len + 1);
-	read(socket_fd, str, len);
+	if (read(socket_fd, str, len) < 0)
+	{
+		perror("listen");
+		exit(EXIT_FAILURE);
+	}
 	str[len] = 0;
 	return (str);
 }
