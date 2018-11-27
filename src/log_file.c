@@ -22,11 +22,11 @@ void	log_file(char *command, char *more_data)
 {
 	FILE *f;
 
-	if (!(f = fopen("kift.log", "a+")))
+	if (!(f = fopen("./kift.log", "a+")))
 		return ;
-	if (strcmp("Sorry, try again!", more_data))
+	if (!strcmp("Sorry, try again!", more_data))
 		fprintf(f, "[%s] [%s] [success] [%s]\n", get_datetime(), command, more_data);
 	else
-		fprintf(f, "[%s] [%s] [failed] [%s]\n", get_datetime(), command, more_data);
-
+		fprintf(f, "[%s] [Wrong command] [failed] [%s]\n", get_datetime(), more_data);
+	fclose(f);
 }
