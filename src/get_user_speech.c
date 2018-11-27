@@ -40,7 +40,7 @@ char		*recognize_from_mic(cmd_ln_t *config, ps_decoder_t *ps)
             puts("Listening...");
             utt_started = TRUE;
         }
-        sleep_msec(1000);
+        sleep_msec(100);
         if (!in_speech && utt_started)
         {
             ps_end_utt(ps);
@@ -67,8 +67,8 @@ char		*get_user_speech(void)
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
                          "-hmm", DICTDIR "en-us-adapt",
-                         "-lm", MODELDIR "/en-us/en-us.lm.bin",
-            "-dict", DICTDIR "dictionary.dic",
+                         "-lm", DICTDIR "lang.lm",
+            "-dict", DICTDIR "dict.dic",
             "-logfn", "/dev/null", NULL);
     if (config == NULL)
     {
