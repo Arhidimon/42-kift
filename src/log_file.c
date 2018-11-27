@@ -22,7 +22,12 @@ void	log_file(char *command, char *more_data)
 {
 	FILE *f;
 
-	if (!(f = fopen("kift.log", "a+")))
+	if (!(f = fopen("./kift.log", "a+")))
+	{
+		printf("AAAA\n");
 		return ;
+	}
+
 	fprintf(f, "[%s] [%s] [success] [%s]\n", get_datetime(), command, more_data);
+	fclose(f);
 }
