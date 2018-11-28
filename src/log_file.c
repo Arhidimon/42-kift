@@ -21,9 +21,13 @@ char	*get_datetime()
 void	log_file(char *command, char *more_data)
 {
 	FILE *f;
+	char *nl;
 
 	if (command && *command && more_data && *more_data)
 	{
+		nl = strchr(more_data, '\n');
+		if (nl != NULL)
+			*nl = ' ';
 		if (!(f = fopen("./kift.log", "a+")))
 			return ;
 		if (strcmp("Sorry, try again!", command))
