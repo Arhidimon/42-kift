@@ -79,7 +79,7 @@ char *action(char *str)
 		return (strdup("Sorry, try again!"));
 }
 
-int main(int argc, char const *argv[])
+int main(void)
 {
 	int server_fd, new_socket, valread;
 	struct sockaddr_in address;
@@ -87,7 +87,6 @@ int main(int argc, char const *argv[])
 	int addrlen = sizeof(address);
 	char *str;
 	char *ans;
-	size_t len;
 
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
 	{
