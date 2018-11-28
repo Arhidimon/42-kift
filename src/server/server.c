@@ -18,11 +18,10 @@
 #include <stdlib.h>
 #include <netinet/in.h>
 #include <string.h>
-#define PORT 8080
 
 void log_term(char *str)
 {
-	printf("[log]%s\n", str); // TODO better log
+	printf("[log]%s\n", str);
 }
 
 char *action(char *str)
