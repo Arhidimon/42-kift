@@ -6,12 +6,12 @@
 #    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 16:26:03 by omaiko            #+#    #+#              #
-#    Updated: 2018/11/20 16:30:45 by omaiko           ###   ########.fr        #
+#    Updated: 2018/11/28 16:31:53 by dbezruch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 osascript -e 'tell application "System Events"
-		repeat 20 times
+		repeat 32 times
 		key code 144
 		delay 0.3
 		end repeat

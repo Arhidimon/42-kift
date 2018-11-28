@@ -32,7 +32,11 @@ char *action(char *str)
 	else if (!strcmp(str, "SEARCH MUSIC"))
 		return choose_play_music();
 	else if (!strcmp(str, "PLAY MUSIC"))
-		return choose_own_music();
+		return choose_play_music();
+	else if (!strcmp(str, "TURN MUSIC") || !strcmp(str, "MUSIC"))
+		return choose_playpause_music();
+	else if (!strcmp(str, "CHECK MUSIC"))
+		return choose_check_music();
 	else if (!strcmp(str, "SET ALARM"))
 		return choose_alarm();
 	else if (!strcmp(str, "CHECK EVENTS"))
@@ -47,7 +51,7 @@ char *action(char *str)
 		return choose_lights_on();
 	else if (!strcmp(str, "LIGHTS OFF"))
 		return choose_lights_off();
-	else if (!strcmp(str, "JOKE"))
+	else if (!strcmp(str, "SHOW JOKE"))
 		return choose_inversion();
 	else if (!strcmp(str, "SEND EMAIL"))
 		return choose_mail();
@@ -69,7 +73,7 @@ char *action(char *str)
 		return choose_where();
 	else if (!strcmp(str, "WHO IS CONNECTED"))
 		return choose_who();
-	else if (!strcmp(str, "SEARCH JOKE"))
+	else if (!strcmp(str, "JOKE"))
 		return choose_joke();
 	else
 		return (strdup("Sorry, try again!"));
