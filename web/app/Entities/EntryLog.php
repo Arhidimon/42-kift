@@ -36,8 +36,8 @@ class EntryLog
 
         //parse
         preg_match_all("/\[(.*?)\]/", $raw, $matches);
-//        dd($matches);
-        if (!empty($matches)) {
+//        dd($matches[0]);
+        if (!empty($matches) && count($matches[0]) == 4) {
             $this->status = $matches[1][2];
             $this->datetime = Carbon::parse($matches[1][0]);
             $this->command = $matches[1][1];
