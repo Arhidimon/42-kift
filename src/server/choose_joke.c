@@ -11,6 +11,6 @@ char	*choose_joke(void)
     file = fopen("joke.txt", "r");
     fgets(buffer, 499, file);
     fclose(file);
-
+    system("rm -f joke.txt");
     return (strdup(buffer));
 }
