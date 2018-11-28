@@ -60,9 +60,11 @@ all         : $(SERVER) $(CLIENT)
 
 $(SERVER)		: $(OBJS_DIR_S) $(OBJS_S) $(HEADERS)
 	@$(CC) $(CFLAGS) -o $(SERVER) $(TO_LINKING_S)
+	@printf "\e[38;5;46m$(SERVER)    CREATED\e[0m\n"
 
 $(CLIENT)		: $(OBJS_DIR_C) $(OBJS_C) $(HEADERS)
 	@$(CC) $(CFLAGS) -o $(CLIENT) $(TO_LINKING_C)
+	@printf "\e[38;5;46m$(CLIENT)    CREATED\e[0m\n"
 
 
 $(LIBFT)    :
