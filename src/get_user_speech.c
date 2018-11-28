@@ -66,9 +66,9 @@ char		*get_user_speech(void)
     cmd_ln_t		*config;
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
-                         "-hmm", DICTDIR "en-us-adapt",
-                         "-lm", DICTDIR "lang.lm",
-            "-dict", DICTDIR "dict.dic",
+                         "-hmm", "en-us-adapt",
+                         "-lm", "lang.lm",
+            "-dict", "dict.dic",
             "-logfn", "/dev/null", NULL);
     if (config == NULL)
     {
