@@ -51,6 +51,8 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 TO_LINKING_S  = $(addprefix $(OBJS_DIR)/, $(OBJS_S)) $(INCLUDES_S)
 TO_LINKING_C  = $(addprefix $(OBJS_DIR)/, $(OBJS_C)) $(INCLUDES_C)
 
+
+
 all         : $(SERVER) $(CLIENT)
 
 $(SERVER)		: $(OBJS_DIR) $(OBJS_S) $(HEADERS)
