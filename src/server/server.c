@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/kift.h"
-#include "../include/server.h"
+#include "../../include/kift.h"
+#include "../../include/server.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/socket.h>
