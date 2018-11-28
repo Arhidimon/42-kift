@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_inversion.c                                 :+:      :+:    :+:   */
+/*   choose_check_music.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omaiko <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dbezruch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 15:23:45 by omaiko            #+#    #+#             */
-/*   Updated: 2018/11/26 18:35:31 by omaiko           ###   ########.fr       */
+/*   Created: 2018/11/23 15:25:05 by dbezruch          #+#    #+#             */
+/*   Updated: 2018/11/26 18:45:09 by dbezruch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "kift.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*choose_inversion(void)
+char	*choose_check_music(void)
 {
-	system("sh ./scripts/inv.script");
-	system("sh ./scripts/own_music_play.script");
-	return (strdup("I have no idea what I am doing."));
+	FILE *file;
+	char buffer[500];
+
+	system("./scripts/spotify.script > cur.tmp");
+	file = fopen("cur.tmp", "r");
+	fgets(buffer, 499, file);
+	fclose(file);
+	return (strdup(buffer));
 }

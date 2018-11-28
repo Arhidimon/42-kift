@@ -29,6 +29,7 @@ choose_traffic.c\
 choose_weather.c\
 choose_where.c\
 choose_who.c\
+choose_check_music.c\
 choose_joke.c
 
 SRCS_C        = client.c message.c get_user_speech.c
@@ -95,7 +96,6 @@ test		:
 	make re
 	./$(SERVER)&
 	./$(CLIENT) 127.0.0.1
-
 author		:
 	cat -e author
 
