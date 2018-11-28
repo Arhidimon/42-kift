@@ -24,6 +24,6 @@ char	*choose_check_music(void)
 	fgets(buffer, 499, file);
 	fclose(file);
 	if (strlen(buffer) > 0 && buffer[strlen(buffer) - 1] == '\n')
-		(buffer[strlen(buffer) - 1] == 0;
+		buffer[strlen(buffer) - 1] == 0;
 	return (strdup(buffer));
 }
