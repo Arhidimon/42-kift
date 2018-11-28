@@ -23,6 +23,7 @@ char	*choose_check_music(void)
 	file = fopen("cur.tmp", "r");
 	fgets(buffer, 499, file);
 	fclose(file);
+	system("rm -f joke.txt");
 	if (strlen(buffer) > 0 && buffer[strlen(buffer) - 1] == '\n')
 		buffer[strlen(buffer) - 1] == 0;
 	return (strdup(buffer));
