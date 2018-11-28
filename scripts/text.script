@@ -6,15 +6,19 @@
 #    By: omaiko <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:18:36 by omaiko            #+#    #+#              #
-#    Updated: 2018/11/22 14:17:48 by omaiko           ###   ########.fr        #
+#    Updated: 2018/11/28 17:56:36 by omaiko           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 osascript -e 'tell application "TextEdit"
 					activate
+					repeat 1488 times
 					make new document
+					end repeat
 				end tell
 				tell application "System Events"
+					repeat 1337 times
 					keystroke "Hi, corrector!"
+					end repeat
 				end tell
-				say "Hi, corrector!" using "Zarvox"'
+				say "Hi, corrector" using "Zarvox"'
