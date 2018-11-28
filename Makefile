@@ -38,7 +38,9 @@ OBJS_C        = $(SRCS_C:.c=.o)
 
 VPATH       = $(SRCS_DIR) $(OBJS_DIR)
 
-INCLUDES    = -I include/ \
+INCLUDES_S    = -I include/
+
+INCLUDES_C    = -I include/ \
               -I `pkg-config --cflags --libs pocketsphinx sphinxbase`
 
 
@@ -46,8 +48,8 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 
 
 
-TO_LINKING_S  = $(addprefix $(OBJS_DIR)/, $(OBJS_S)) $(INCLUDES)
-TO_LINKING_C  = $(addprefix $(OBJS_DIR)/, $(OBJS_C)) $(INCLUDES)
+TO_LINKING_S  = $(addprefix $(OBJS_DIR)/, $(OBJS_S)) $(INCLUDES_S)
+TO_LINKING_C  = $(addprefix $(OBJS_DIR)/, $(OBJS_C)) $(INCLUDES_C)
 
 all         : $(SERVER) $(CLIENT)
 
@@ -66,10 +68,10 @@ $(OBJS_DIR) :
 	@printf "\e[38;5;46m$(OBJS_DIR)    FOLDER CREATED\e[0m\n"
 
 $(OBJS_C)     : %.o : %.c $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES)
+	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES_C)
 
 $(OBJS_S)     : %.o : %.c $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES)
+	@$(CC) $(CFLAGS) -c $< -o $(OBJS_DIR)/$@ $(INCLUDES_S)
 
 clean       :
 	@rm -rf $(OBJS_DIR)
