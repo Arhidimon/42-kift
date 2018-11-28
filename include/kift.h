@@ -36,7 +36,7 @@ char	*choose_brightness_up(void);
 char	*choose_brightness_down(void);
 char	*choose_alarm(void);
 char	*choose_joke(void);
-char	*choose_check_music(void);mak
+char	*choose_check_music(void);
 char	*choose_playpause_music(void);
 
 #endif //KIFT_MESSAGE_H
